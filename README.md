@@ -70,7 +70,14 @@ The official F1 API does not provide GPS telemetry for the Safety Car vehicle, o
 ---
 
 ## 3. Target Users
-
+1. Primary users: Experts & enthusiasts
+- Engineers, analysts, and team strategists
+They use detailed telemetry (lap times, tire degradation, sector splits) to analyze race strategy and performance.
+- Serious F1 fans / data-savvy viewers
+Fans who understand race strategy benefit from features like driver comparisons, pit stop windows, and pace trends.
+2. Secondary users: General public (engaged viewers)
+- Casual viewers who want enhanced understanding of the race
+- Visual elements (track maps, position changes, timing gaps) make complex race dynamics easier to follow without deep technical knowledge
 
 
 ---
