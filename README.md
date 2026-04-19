@@ -70,13 +70,88 @@ The official F1 API does not provide GPS telemetry for the Safety Car vehicle, o
 ---
 
 ## 3. Target Users
-
-
-
+1. Primary users: Experts & enthusiasts
+- Engineers, analysts, and team strategists
+They use detailed telemetry (lap times, tire degradation, sector splits) to analyze race strategy and performance.
+- Serious F1 fans / data-savvy viewers
+Fans who understand race strategy benefit from features like driver comparisons, pit stop windows, and pace trends.
+2. Secondary users: General public (engaged viewers)
+- Casual viewers who want enhanced understanding of the race
+- Visual elements (track maps, position changes, timing gaps) make complex race dynamics easier to follow without deep technical knowledge
 ---
 
 ## 4. Questions & Insights
+##### 🏎️ Performance comparison
+Who was faster over a lap, and where did they gain time?
+Which driver had better cornering vs straight-line speed?
+How consistent was a driver across laps?
+##### 🧠 Strategy & race decisions
+Did a pit stop actually help track position?
+How did tire degradation affect lap times?
+Was an undercut or overcut successful?
+##### ⚙️ Driving behavior
+Who braked later into corners?
+Who had better throttle application on exit?
+Where did a driver lose control or make mistakes?
+##### 📉 Race dynamics
+How did gaps between drivers evolve over time?
+When did overtakes become possible?
+How did traffic affect lap pace?
+##### 🧭 How users find answers with the tool
+1. Lap comparison overlays
+Select two drivers → overlay lap traces
+Use delta-time graph to see exact time gain/loss per segment
+2. Telemetry channels
+Toggle channels like:
+- Speed
+- Throttle
+- Brake
+- Gear
+Compare traces to understand why differences occur (not just where)
+3. Track map synchronization
+Hover over any point → see both cars’ positions on track
+Identify specific corners where performance diverges
+4. Time series charts
+Analyze lap times, tire wear trends, and stint performance
+Spot degradation patterns or performance drop-offs
+5. Replay + telemetry sync
+Watch onboard footage aligned with telemetry
+Validate whether a spike/drop corresponds to a mistake, lock-up, or traffic
+##### 💡 Example insights users can discover
+Insight 1: Cornering vs straight-line tradeoff
+Driver A gains 0.3s in high-speed corners but loses 0.2s on straights
+→ Suggests higher downforce setup
 
+Insight 2: Braking efficiency difference
+Driver B brakes later but has a sharper speed drop
+→ Aggressive braking style, possibly causing tire wear
+
+Insight 3: Tire degradation impact
+Lap times increase steadily after lap 12 on soft tires
+→ Confirms optimal pit window around lap 10–11
+
+Insight 4: Undercut success
+Driver C pits earlier and emerges ahead after others pit
+→ Visualization shows time gained due to fresher tires
+
+Insight 5: Mistake detection
+Sudden throttle drop + speed dip in Sector 2
+→ Likely driver error or minor lock-up visible in replay
+
+Insight 6: Dirty air effect
+Following driver loses corner speed compared to clean air laps
+→ Demonstrates aerodynamic turbulence impact
+
+##### 🧠 Big picture takeaway
+
+This visualization enables users to move from:
+
+“What happened?” → “Why did it happen?”
+
+By combining:
+Quantitative telemetry (data)
+Spatial context (track map)
+Visual replay (chart)
 
 
 ---
@@ -162,7 +237,80 @@ It's worth noting that a few of the improvements mentioned above are actually al
 ---
 
 ## 6. Limitations
+1. Inaccurate leaderboard and position tracking
+The leaderboard can be incorrect at certain moments, especially:
+At race start (first few corners)
+During pit stops
+At race finish due to positional inconsistencies
+Root cause: imperfect telemetry and position estimation
+👉 Impact:
+Users may draw wrong conclusions about race order or overtakes, reducing trust in the visualization.
 
+2. Telemetry data limitations (data quality dependency)
+The system relies on public telemetry APIs (e.g., FastF1)
+These datasets can have:
+Missing values
+Delays
+Approximate car positions
+👉 Impact:
+Insights like “who overtook whom and where” may be approximate rather than exact, limiting precision analysis.
+
+3. Limited depth of telemetry variables
+Current visualization shows only:
+Speed
+Gear
+DRS
+Lap info
+👉 Missing:
+Tire degradation curves
+Fuel load effects
+Detailed braking/throttle traces
+Sector-level delta comparisons
+👉 Impact:
+Users cannot perform advanced performance analysis like engineers (e.g., micro-corner optimization).
+
+4. No advanced comparison tools
+Lacks features like:
+Multi-driver lap overlays
+Delta time graphs
+Side-by-side telemetry comparison
+👉 Impact:
+Users can observe what happened, but struggle to deeply analyze why it happened.
+
+5. Visualization simplification (2D abstraction)
+Uses a 2D track map with approximated car positions
+No elevation, racing line, or realistic spacing
+👉 Impact:
+Limits spatial understanding of:
+Racing lines
+Corner dynamics
+Real overtaking difficulty
+
+6. Interaction and usability limitations
+Controls are basic (play, pause, speed)
+No:
+Advanced filtering (e.g., isolate drivers/stints)
+Custom queries
+Annotation or bookmarking
+👉 Impact:
+Users cannot easily explore complex analytical questions interactively.
+
+7. Performance and setup constraints
+Requires:
+Python environment
+Dependency setup (FastF1, Arcade, etc.)
+👉 Impact:
+Not accessible to casual users
+Limits adoption to technical users
+
+8. Edge-case inconsistencies during race events
+Known issues during:
+Pit entry/exit
+Race start clustering
+Final lap positioning
+
+👉 Impact:
+Critical race moments—where analysis matters most—can be least reliable.
 
 ---
 
