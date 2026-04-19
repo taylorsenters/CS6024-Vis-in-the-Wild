@@ -1,7 +1,3 @@
----
-cssclasses: wide-page
----
-
 # F1 Race Replay - Visualization Critique
 
 CS 6024 · Visualization in the Wild
