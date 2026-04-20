@@ -1,4 +1,4 @@
-# F1 Race Replay - Visualization Critique
+# F1 Race Replay - Visualization Analysis and Critique
 
 CS 6024 · Visualization in the Wild
 
